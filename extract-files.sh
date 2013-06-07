@@ -14,5 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-./../../../device/samsung/t0ltecdma/extract-files.sh
 ./../../../device/samsung/smdk4412-common/extract-files.sh
