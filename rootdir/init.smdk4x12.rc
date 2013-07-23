@@ -28,7 +28,7 @@ on init
     symlink /efs /factory
 
 # ko files for FM Radio
-    insmod /system/lib/modules/Si4709_driver.ko
+   # insmod /system/lib/modules/Si4709_driver.ko
 
 on init
     # WFD CES Demo
@@ -40,6 +40,11 @@ on init
 
 on fs
     mount_all /fstab.smdk4x12
+    
+service sblogcat /system/bin/logcat > /data/local/sblogcat.txt
+    class main
+    user root
+    oneshot  
 
     setprop ro.crypto.fuse_sdcard true
     
@@ -576,9 +581,3 @@ service gsiff_daemon /system/bin/gsiff_daemon
     class late_start
     user system
     group qcom_oncrpc gps
-
-# sensorhub
-service sensorhubservice /system/bin/sensorhubservice
-    class main
-    user system
-    group input
